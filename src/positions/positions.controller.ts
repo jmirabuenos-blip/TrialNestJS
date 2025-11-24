@@ -32,7 +32,7 @@ export class PositionsController {
     @Body() position: { position_code: string; position_name: string },
     @Req() req: Request,
   ) {
-    const userId = (req.user as any).id; // ✅ from JwtStrategy
+    const userId = (req.user as any).id; 
     const created = await this.positionsService.create({
       ...position,
       id: userId,
@@ -43,7 +43,6 @@ export class PositionsController {
     };
   }
 
-  // 🟡 Update position
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   async update(

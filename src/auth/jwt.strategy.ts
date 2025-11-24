@@ -13,7 +13,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    // ✅ "sub" will be the user_id encoded in your token
     return {
       id: payload.sub,
       username: payload.username,
